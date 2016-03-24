@@ -14,7 +14,7 @@ def log(msg)
 end
 
 def offences(file)
-  processed_source = RuboCop::ProcessedSource.from_file(file)
+  processed_source = RuboCop::ProcessedSource.from_file(file, RUBY_VERSION.to_f)
   team = RuboCop::Cop::Team.new(
     RuboCop::Cop::Cop.all,
     RuboCop::ConfigStore.new.for(processed_source.path),
